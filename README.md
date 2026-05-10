@@ -19,25 +19,11 @@ Traditional RAG applications often freeze the user interface while processing he
 * **AI Models:** Anthropic Claude 3 (Generation), Amazon Titan (Embeddings)
 * **Frontend:** HTML5, CSS3, Vanilla JavaScript
 
-## 📁 Project Structure
-```text
-enterprise-rag-agent/
-│
-├── app.py                 # Flask web server and webhook endpoints
-├── worker.py              # Background processor listening to SQS
-├── rag_engine.py          # LLM and OpenSearch query logic
-├── requirements.txt       # Python dependencies
-├── .env.example           # Example environment variables file
-├── .gitignore             # Git ignore rules (protects secrets)
-├── README.md              # Project documentation
-│
-└── templates/
-    └── index.html         # Frontend user interface
+'## 📝 Important Notes
+* **Data Privacy:** All documents uploaded to the vault remain private to your AWS account. OpenSearch Serverless data is encrypted at rest.
+* **Cost Warning:** Running Amazon Bedrock and OpenSearch Serverless will incur AWS charges. Be sure to tear down your infrastructure when not testing to avoid unexpected bills.
 
-
-
-
-⚙️ Quick Start Guide
+## ⚙️ Quick Start Guide
 1. AWS Prerequisites
 Before running this application, you must have the following configured in your AWS account:
 Model Access: Amazon Titan Text Embeddings V2 and Anthropic Claude 3 enabled in AWS Bedrock.
@@ -77,4 +63,18 @@ Terminal 2: Start the Background Worker
 Bash
 python worker.py
 
-Enjoy
+## 📁 Project Structure
+```text
+enterprise-rag-agent/
+│
+├── app.py                 # Flask web server and webhook endpoints
+├── worker.py              # Background processor listening to SQS
+├── rag_engine.py          # LLM and OpenSearch query logic
+├── requirements.txt       # Python dependencies
+├── .env.example           # Example environment variables file
+├── .gitignore             # Git ignore rules (protects secrets)
+├── README.md              # Project documentation
+│
+└── templates/
+    └── index.html         # Frontend user interface
+
