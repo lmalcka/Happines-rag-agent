@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Happiness Agent</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Background Elements -->
+    <div class="pond"></div>
+
+    <!-- Main Agent Interface -->
+    <div class="agent-container">
+        <h2>World Happiness Agent</h2>
+
+        <!-- Upload Area -->
+        <div>
+            <div class="section-label">TEACH THE AGENT (UPLOAD CONTEXT)</div>
+            <div class="input-group">
+                <input type="file" id="fileInput">
+                <button onclick="uploadFile()" class="action-btn">Upload</button>
+            </div>
+            <p id="uploadStatus" class="status-text"></p>
+        </div>
+
+        <hr class="divider">
+
+<!-- status bar that appears after an upload and updates automatically every 2 seconds until the "Success" message is received -->
+<div id="status-container" style="display:none; margin: 10px; padding: 15px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 10px; border: 1px solid rgba(255,255,255,0.2); color: white;">
+    <h4 style="margin-top:0;">Processing: <span id="tracking-filename"></span></h4>
+    <div id="status-message" style="font-style: italic;">Initializing...</div>
+</div>
+        <!-- Chat Area -->
+        <div>
+            <div class="section-label">ASK A QUESTION</div>
+            <div class="input-group" style="margin-bottom: 10px;">
+                <input type="text" id="questionInput" placeholder="e.g., Which country is happiest?">
+                <button onclick="askQuestion()" class="action-btn ask-btn">Ask</button>
+            </div>
+
+            <div class="section-label">AGENT RESPONSE</div>
+            <div class="chat-box" id="answerOutput">
+                Waiting for your question...
+            </div>
+        </div>
+    </div>
+
+    <!-- Link to the external JavaScript file -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
